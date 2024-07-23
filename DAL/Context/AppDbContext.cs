@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Context;
 
@@ -8,4 +9,6 @@ public class AppDbContext : DbContext
     {
         
     }
+
+    public DbSet<Product> Products { get; set; }
 }

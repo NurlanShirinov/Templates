@@ -1,5 +1,6 @@
 using DAL;
 using Application;
+using TemplateProject.Infrastructure.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseCors();
+app.UseMiddleware<CorsMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
