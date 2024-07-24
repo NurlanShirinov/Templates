@@ -8,13 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CQRS\Product\Query\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\A.Common.csproj" />
+    <ProjectReference Include="..\Repository\C.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Infrastructure;
 using Repository.Common;
 using Repository.Repositories;
 
@@ -15,7 +16,9 @@ public class SqlUnitOfWork : IUnitOfWork
         _connectionString = connectionString;
     }
 
-    public IProductRepository ProductRepository => throw new NotImplementedException();
+    public ProductRepository _productRepository;    
+
+    public IProductRepository ProductRepository => _productRepository?? new ProductRepository(_connectionString, _context);
 
     public async Task SaveChanges()
     {
