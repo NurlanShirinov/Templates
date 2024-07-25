@@ -14,11 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Product\Query\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Common\A.Common.csproj" />
+    <ProjectReference Include="..\Domain\B.Domain.csproj" />
     <ProjectReference Include="..\Repository\C.Repository.csproj" />
   </ItemGroup>
 

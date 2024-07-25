@@ -21,14 +21,10 @@ public class ProductRepository : BaseSqlRepository, IProductRepository
         await _context.AddAsync(product);
     }
 
-    public async Task Delete(int id)
+    public void Delete(int id)
     {
-        var currentEntity = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-
-        if (currentEntity != null)
-            currentEntity.IsDeleted = true;
-        else
-            throw new BadRequestException();
+        var currentEntity = _context.Products.FirstOrDefault(p => p.Id == id);
+        currentEntity.IsDeleted = true;
     }
 
     public async Task<IEnumerable<Product>> GetAllAsync()
